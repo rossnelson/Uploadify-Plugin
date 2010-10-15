@@ -1,8 +1,5 @@
 class PhotosController < ApplicationController
-	filter_resource_access
-	
-	layout 'cms'
-	
+
   def index
     @photos = Photo.all
   end

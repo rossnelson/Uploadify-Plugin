@@ -1,7 +1,4 @@
 class AlbumsController < ApplicationController
-	filter_resource_access
-	
-	layout 'cms'
 	
   def index
     @albums = Album.all

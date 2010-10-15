@@ -6,8 +6,6 @@ class CreateAlbums < ActiveRecord::Migration
       t.text :desc
       t.timestamps
     end
-		
-		AdminMenuItem.create({:title =>"Albums", :controller_name => "albums", :url => "/albums"})
   end
   
   def self.down
