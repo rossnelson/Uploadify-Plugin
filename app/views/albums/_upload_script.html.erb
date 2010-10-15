@@ -1,0 +1,32 @@
+<%- session_key_name = ActionController::Base.session_options[:key] -%>
+<%= javascript_include_tag "uploadify/swfobject", "uploadify/jquery.uploadify.v2.1.0" %>
+
+<script type="text/javascript" charset="utf-8"> 
+$(document).ready(function() {
+	$('#photo_file').click(function(event) { 
+		event.preventDefault();
+	}); 
+	
+$('#photo_file').uploadify({
+	'uploader' 		: '/javascripts/uploadify/uploadify.swf',
+	'script' 			: '/photos/create',
+	'multi' 			: true,
+	'auto'				: true,
+	'cancelImg' 	: '/images/cancel.png',
+	onComplete : function(event, queueID, fileObj, response, data) { var dat = eval('(' +
+	response + ')');$.getScript(dat.photo);},
+	'scriptData': {
+		'<%= session_key_name %>' : encodeURIComponent('<%= u cookies[session_key_name] %>'),
+		'authenticity_token' : encodeURIComponent('<%= u form_authenticity_token if protect_against_forgery? %>'),
+		'album_id' : '<%= @album.id %>',
+		'format'	: 'json'
+		},
+
+	});
+	
+$('#photo_submit').click(function(event){
+	event.preventDefault(); 
+	$('#photo_file').uploadifyUpload(); 
+	});
+}); 
+</script>

@@ -1,0 +1,10 @@
+<% title "Edit Photo" %>
+
+<%= stylesheet( 'dust_album','uploadify') %>
+
+<%= render :partial => 'form' %>
+
+<p>
+  <%= link_to "Show", @photo %> |
+  <%= link_to "View All", photos_path %>
+</p>

@@ -1,0 +1,4 @@
+sqlite3:
+  :adapter: sqlite3
+  :database: vendor/plugins/dust_albums/test/dust_album.sqlite3.db
+

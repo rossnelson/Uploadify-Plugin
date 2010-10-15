@@ -1,0 +1,26 @@
+<% title "Photo" %>
+
+<%= stylesheet( 'dust_album','uploadify') %>
+
+<p>
+  <strong>Title:</strong>
+  <%=h @photo.title %>
+</p>
+<p>
+  <strong>Desc:</strong>
+  <%=h @photo.desc %>
+</p>
+<p>
+  <strong>Date Shot:</strong>
+  <%=h @photo.date_shot %>
+</p>
+<p>
+  <strong>Location:</strong>
+  <%=h @photo.location %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_photo_path(@photo) %> |
+  <%= link_to "Destroy", @photo, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", photos_path %>
+</p>
