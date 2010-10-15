@@ -1,4 +1,6 @@
 class PhotosController < ApplicationController
+	filter_resource_access
+	
   def index
     @photos = Photo.all
   end

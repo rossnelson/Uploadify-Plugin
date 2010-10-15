@@ -1,0 +1,12 @@
+<% title @album.title %>
+<% heading @album.title %>
+<%= @album.desc %>
+
+<div id="uploads">
+	<% @album.photos.each do |photo| %>
+		<div id="photo">
+			<%= photo.file.url(:thumd) %>
+		</div>
+	<% end -%>	
+	</div>
+</div>

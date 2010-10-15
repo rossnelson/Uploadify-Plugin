@@ -2,6 +2,7 @@ class CreateAlbums < ActiveRecord::Migration
   def self.up
     create_table :albums do |t|
       t.string :title
+			t.string :filename
       t.text :desc
       t.timestamps
     end

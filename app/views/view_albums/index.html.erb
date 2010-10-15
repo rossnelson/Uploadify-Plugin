@@ -1,0 +1,6 @@
+<% @albums.each do |album| %>
+	<div class="photo">
+		<% album.photos.first = @photo %>
+		<%= @photo.file.url(:thumb) %>
+	</div>
+<% end -%>
